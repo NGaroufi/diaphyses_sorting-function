@@ -6,7 +6,7 @@ The present function allows the user to utilize a set of diaphyseal cross-sectio
 The function can be used either from the `app.R` file available upon download or from the command line of an R programming environment. 
 
 ## `app.R` file: 
-Upon opening the file with in an R programming environment, the user only needs to choose `Run App` to run the Shiny application. A GUI window will open, allowing the user to choose the type of bone, distance, and threshold value needed for their study, as well as whther the software is being used for a validation study (i.e. when the user knows the ground truth) or as an application on an unknown dataset. Upon clicking on the `Choose your data file(s)` button, a second window (or two, in case of an unknown dataset) will pop up and the user can then choose the relevant dataset. The results of the most probable pairs will appear on the screen, while more detailed results will be saved as `.csv` files on the working directory.
+Upon opening the file with in an R programming environment, the user only needs to choose `Run App` to run the Shiny application. A GUI window will open, allowing the user to choose the type of bone, distance, and threshold value needed for their study, as well as whether the software is being used for a validation study (i.e. when the user knows the ground truth) or as an application on an unknown dataset. Upon clicking on the `Choose your data file(s)` button, a second window (or two, in case of an unknown dataset) will pop up and the user can then choose the relevant dataset. The results of the most probable pairs will appear on the screen, while more detailed results will be saved as `.csv` files on the working directory.
 
 [//]:<img align="center" width="1000" height="1200" src="https://github.com/user-attachments/assets/6e28d3d0-ae53-474e-8d11-d4ff54bfd7fa">
 <img src="https://github.com/user-attachments/assets/6e28d3d0-ae53-474e-8d11-d4ff54bfd7fa">
@@ -29,7 +29,7 @@ The three inputs the `ep_sorting` requires are:
 
 This will open a window of the working directory, where the user can choose the CSV file containing the measurements. The function will then display a message reporting the number of samples from the data file. The results of the analysis are saved in .csv files:
 1. regarding the 5 top predictions for each sample when utilizing only the predictions from the 20% and the 80% cross-sections
-2. regarding the sample statistics (sample size, definite matches, number of excluded pairs, True Negative Rate, number of false negatives)
+2. regarding the sample statistics (sample size, definite matches, number of excluded pairs, True Negative Rate, number of false negatives) for known datasets
 3. regarding the sorted pairs (definite matches)
 4. regarding the plausible pairs
 
