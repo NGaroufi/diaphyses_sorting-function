@@ -7,7 +7,7 @@ suppressMessages(suppressWarnings(invisible(sapply(list.of.packages, require,
                                                    character.only = TRUE))))
 
 # Source helpers ----
-source("epiphyses_sorting.R")
+source("diaphyses_sorting.R")
 
 # User interface ----
 ui <- page_sidebar(
@@ -122,3 +122,4 @@ server <- function(input, output) {
 
 # Run the app
 shinyApp(ui, server)
+
