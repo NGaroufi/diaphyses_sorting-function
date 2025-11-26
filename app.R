@@ -1,6 +1,6 @@
 # Load packages ----
 list.of.packages <- c("readr", "caret", "e1071", "Metrics", "dplyr", 
-                      "shiny", "bslib")
+                      "shiny", "bslib", "shinyWidgets")
 #install.packages(list.of.packages, quiet = TRUE)
 
 suppressMessages(suppressWarnings(invisible(sapply(list.of.packages, require, 
@@ -11,7 +11,7 @@ source("diaphyses_sorting.R")
 
 # User interface ----
 ui <- page_sidebar(
-  title = "Sorting Epiphyseal Fragments",
+  title = "Sorting Diaphyseal Fragments",
   theme = bs_theme(
     bg = "#faf4ff",
     fg = "black",
@@ -28,7 +28,7 @@ ui <- page_sidebar(
     selectInput(
       inputId = "bone",
       label = "Bone Type",
-      choices = c("Femur", "Tibia", "Humerus")
+      choices = c("Femur", "Tibia", "Humerus", "Ulna")
     ),
     helpText(
       "Select a Distance to work with."
@@ -43,9 +43,9 @@ ui <- page_sidebar(
                   "minkowski")
     ),
     br(),
-    sliderInput("thr_id", "Threshold value:",
-                min = 1, max = 2,
-                value = 1.5, step=0.25),
+    shinyWidgets::sliderTextInput(inputId = "thr_id", 
+                                  label = "Threshold value:", 
+                                  choices = c(0.85, 0.90, 0.92, 0.95)),
     br(),
     helpText(
       "If you know the ground truth and wish to evaluate
@@ -82,12 +82,13 @@ server <- function(input, output) {
   
   
   threshold_value <- reactive({
-                      if (input$thr_id == 1) 
-                        {threshold_value = 1} else if (input$thr_id == 1.25)
-                        {threshold_value = 125} else if (input$thr_id == 1.5)
-                        {threshold_value = 15} else if (input$thr_id == 1.75)
-                        {threshold_value = 175} else if (input$thr_id == 2)
-                        {threshold_value = 2}
+                      if (input$thr_id == 0.85)
+                        {threshold_value = 85} else if (input$thr_id == 0.90) 
+                        {threshold_value = 90} else if (input$thr_id == 0.92)
+                        {threshold_value = 92} else if (input$thr_id == 0.95)
+                        {threshold_value = 95} #else if (input$thr_id == 1.75)
+                        #{threshold_value = 175} else if (input$thr_id == 2)
+                        #{threshold_value = 2}
                     
                   })
   
@@ -122,4 +123,3 @@ server <- function(input, output) {
 
 # Run the app
 shinyApp(ui, server)
-

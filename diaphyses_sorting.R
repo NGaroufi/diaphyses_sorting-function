@@ -20,7 +20,7 @@ ep_sorting <- function(bone, distance, threshold_value, ground_truth = FALSE)
     # Data loading and prep
     data <- read.csv(file.choose(new=TRUE))
     data <- data[, c(1,8:11, 13:14,40:43, 45:46)]
-  
+    
     print(paste0("You are working with ", nrow(data), " ", bone, " bones."))
     
     # Functions needed
@@ -324,10 +324,10 @@ ep_sorting <- function(bone, distance, threshold_value, ground_truth = FALSE)
   {
     # Data loading and prep
     data_20 <- read.csv(file.choose(new=TRUE))
-    data_20 <- data_20[, -c(6,9)]
+    data_20 <- data_20[, c(1,8:11, 13:14,40:43, 45:46)]
     
     data_80 <- read.csv(file.choose(new=TRUE))
-    data_80 <- data_80[, -c(6,9)]
+    data_80 <- data_80[, c(1,8:11, 13:14,40:43, 45:46)]
     
     
     # Welcoming message
