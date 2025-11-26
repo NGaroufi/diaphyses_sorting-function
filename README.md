@@ -8,8 +8,8 @@ The function can be used either from the `app.R` file available upon download or
 ## `app.R` file: 
 Upon opening the file with in an R programming environment, the user only needs to choose `Run App` to run the Shiny application. A GUI window will open, allowing the user to choose the type of bone, distance, and threshold value needed for their study, as well as whether the software is being used for a validation study (i.e. when the user knows the ground truth) or as an application on an unknown dataset. Upon clicking on the `Choose your data file(s)` button, a second window (or two, in case of an unknown dataset) will pop up and the user can then choose the relevant dataset. The results of the most probable pairs will appear on the screen, while more detailed results will be saved as `.csv` files on the working directory.
 
-[//]:<img align="center" width="1000" height="1200" src="https://github.com/user-attachments/assets/6e28d3d0-ae53-474e-8d11-d4ff54bfd7fa">
-<img src="https://github.com/user-attachments/assets/6e28d3d0-ae53-474e-8d11-d4ff54bfd7fa">
+[//]:<img align="center" width="1132" height="1017" src="https://github.com/user-attachments/assets/302aaee2-a789-4a19-a872-8f63af042f83">
+<img src="https://github.com/user-attachments/assets/302aaee2-a789-4a19-a872-8f63af042f83">
 
 ## Console:
 First, the user needs to load the function in the R workspace. This is achieved with the command:
@@ -19,12 +19,12 @@ source("epiphyses_sorting.R")
 
 A message showing the successful installation of the necessary packages will show on the R console upon loading the function. Additionally, once the function is properly loaded, it can be called from the R console as:
 ```
-ep_sorting(bone, algorithm, distance)
+ep_sorting(bone, distance, threshold_value, ground_truth)
 ```
 The three inputs the `ep_sorting` requires are: 
 1. bone: "femur", "tibia", or "humerus"
 2. distance: "euclidean", "maximum", "manhattan", "canberra", or "minkowski" (the default p for minkowski is 1.5)
-3. threshold_value: "1", "125" (=1.25), "15" (=1.5), "175" (=1.75), "2"
+3. threshold_value: "0.85" (=85), "0.90" (=90), "0.92" (=92), "0.95" (=95) for each percentile
 4. ground_truth: "TRUE" in case of a validation study (one dataset), "FALSE" in case of an unknown dataset (two files)
 
 This will open a window of the working directory, where the user can choose the CSV file containing the measurements. The function will then display a message reporting the number of samples from the data file. The results of the analysis are saved in .csv files:
