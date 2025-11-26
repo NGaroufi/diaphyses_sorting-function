@@ -14,7 +14,7 @@ Upon opening the file with in an R programming environment, the user only needs 
 ## Console:
 First, the user needs to load the function in the R workspace. This is achieved with the command:
 ```
-source("epiphyses_sorting.R")
+source("diaphyses_sorting.R")
 ```
 
 A message showing the successful installation of the necessary packages will show on the R console upon loading the function. Additionally, once the function is properly loaded, it can be called from the R console as:
